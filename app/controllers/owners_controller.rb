@@ -10,7 +10,10 @@ class OwnersController < ApplicationController
 
   def create
     owner = Owner.create(owner_params)
-    redirect_to owner_path(owner)
+    if owner.save
+      flash[:notice] = "Owner successfully created"
+      redirect_to owner_path(owner)
+    end
   end
 
   def show
