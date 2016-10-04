@@ -1,2 +1,9 @@
 <h1>Owners#edit</h1>
 <p>Find me in app/views/owners/create.html.erb</p>
+<%= form_for @owner do |f| %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.text_field :email %>
+  <%= f.text_field :phone %>
+  <%= f.submit "Save Changes" %>
+<% end %>

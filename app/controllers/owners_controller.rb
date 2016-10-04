@@ -22,11 +22,18 @@ class OwnersController < ApplicationController
   end
 
   def edit
-    # stretch
+    owner_id = params[:id]
+    @owner = Owner.find_by_id(owner_id)
   end
 
   def update
-    # stretch
+    owner_id = params[:id]
+    owner = Owner.find_by_id(owner_id)
+    if  owner.update_attributes(owner_params)
+      flash[:notice] = "Owner successfully updated"
+      redirect_to owner_path(owner)
+    end
+
   end
 
   def destroy
